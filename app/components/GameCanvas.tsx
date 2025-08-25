@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 export default function LuckyJetGame() {
@@ -140,6 +141,7 @@ export default function LuckyJetGame() {
 			if (intervalRef.current) clearInterval(intervalRef.current);
 			if (timeoutRef.current) clearTimeout(timeoutRef.current);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [containerSize.width, containerSize.height]);
 
 	// flyAway в конце вызывает startWaitingAnimation
@@ -298,7 +300,7 @@ export default function LuckyJetGame() {
 				{/* Блок ожидания */}
 				{state === "waiting" && (
 					<div className="grid p-4 place-content-center place-items-center gap-4 w-full h-full absolute z-[100]">
-						<img
+						<Image
 							alt="waiting"
 							width={30}
 							height={30}

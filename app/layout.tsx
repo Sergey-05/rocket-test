@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google"; // добавили Roboto
+import { Roboto } from "next/font/google";
 import "./globals.css";
-import PreloaderProvider from "./components/PreloaderProvider";
+import DataLoader from "./components/DataLoader";
 import ClientEvents from "./components/ClientEvents";
 
 const roboto = Roboto({
 	variable: "--font-roboto",
 	subsets: ["latin"],
-	weight: ["400", "500", "700"], // нужные начертания
+	weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -23,10 +23,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${roboto.variable} antialiased`}>
-				<PreloaderProvider>
-					<ClientEvents />
-					<main className="p-2.5">{children}</main>
-				</PreloaderProvider>
+				<DataLoader />
+				<ClientEvents />
+				<main className="p-2.5">{children}</main>
 			</body>
 		</html>
 	);

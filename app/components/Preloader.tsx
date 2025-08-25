@@ -1,19 +1,13 @@
 // app/components/Preloader.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
-
-export default function Preloader({ fadeOut }: { fadeOut?: boolean }) {
-	const [progress, setProgress] = useState(0);
-
-	useEffect(() => {
-		// точки останова
-		const steps = [20, 45, 70, 90, 100];
-		steps.forEach((value, i) => {
-			setTimeout(() => setProgress(value), i * 1000 + 500); // каждые 1с + задержка
-		});
-	}, []);
-
+export default function Preloader({
+	fadeOut,
+	progress = 0,
+}: {
+	fadeOut?: boolean;
+	progress?: number;
+}) {
 	return (
 		<>
 			<style jsx>{`
