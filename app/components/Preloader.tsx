@@ -286,7 +286,7 @@ export default function Preloader({
 				}
 			`}</style>
 			<div
-				className={`preloader-container transition-opacity duration-500 z-10 ${
+				className={`preloader-container transition-opacity duration-500 z-50 ${
 					fadeOut ? "opacity-0" : "opacity-100"
 				}`}
 			>
