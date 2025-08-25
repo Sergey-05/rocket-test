@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Rocketfont';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/rocket.woff2') format('woff2');
+  font-display: swap;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -22,5 +31,59 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  	font-family: var(--font-roboto), sans-serif;
+
 }
+
+
+
+/* === LuckyJet Preloader Animations === */
+@keyframes shinePulse {
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(0.85) }
+}
+@keyframes starPulse {
+  0%, 100% { transform: scale(1) }
+  50% { transform: scale(1.15) }
+}
+@keyframes letterJump {
+  0%, 20%, 100% { transform: translateY(0) }
+  7% { transform: translateY(10px) }
+  14% { transform: translateY(-20px) }
+}
+@keyframes manMove {
+  0%, 100% { transform: translate(0, 0) }
+  50% { transform: translate(10px, -10px) }
+}
+
+/* Общие */
+.item { @apply absolute top-0 left-0 ease-in-out; }
+.mask { @apply rounded-full overflow-hidden w-[238px] h-[238px]; transform: translateZ(0); }
+.bg { background-image: url('/assets/sprite.webp'); position: absolute; }
+
+/* Shine & circle */
+.bg-shine { @apply w-[238px] h-[238px] rounded-full; background:#c86edb; box-shadow:0 0 100px #8e46ff; animation:shinePulse 3s ease-in-out infinite reverse; }
+.bg-circle { @apply w-[238px] h-[238px] rounded-full; background:linear-gradient(135deg,#b172ff,#8e46ff); }
+
+/* Чувак */
+.bg-man { top:-18%; left:-25%; width:325px; height:397px; background-position:-1px -1px; animation:manMove 1.5s ease-in-out infinite; }
+
+/* Буквы */
+.bg-l { top:-20px; left:-129px; width:63px; height:96px; background-position:-401px -1px; animation:letterJump 4s ease-in-out 0.5s infinite; }
+.bg-u { top:8px; left:-81px; width:56px; height:67px; background-position:-401px -271px; animation:letterJump 4s ease-in-out 0.6s infinite; }
+.bg-c { top:-32px; left:-33px; width:62px; height:109px; background-position:-328px -99px; animation:letterJump 4s ease-in-out 0.7s infinite; filter:drop-shadow(0 -3px 5px #2f165866); }
+.bg-k { top:1px; left:29px; width:54px; height:74px; background-position:-401px -195px; animation:letterJump 4s ease-in-out 0.8s infinite; }
+.bg-y { top:-20px; left:73px; width:70px; height:96px; background-position:-328px -210px; animation:letterJump 4s ease-in-out 0.9s infinite; }
+.bg-j { top:80px; left:-87px; width:61px; height:94px; background-position:-401px -99px; animation:letterJump 4s ease-in-out 0.6s infinite; }
+.bg-e { top:93px; left:-24px; width:51px; height:72px; background-position:-328px -308px; animation:letterJump 4s ease-in-out 0.75s infinite; }
+.bg-t { top:81px; left:22px; width:71px; height:96px; background-position:-328px -1px; animation:letterJump 4s ease-in-out 0.9s infinite; }
+
+/* Звезды */
+.bg-star { width:47px; height:51px; background-position:-401px -340px; animation:starPulse 3s ease-in-out infinite; }
+.bg-star-2 { top:140px; left:208px; }
+
+/* Прогресс */
+.progress { @apply relative w-[280px] max-w-[calc(100%-30px)] h-[9px] rounded-[9px] mx-[-30px]; background:linear-gradient(90deg,#ff9c00,#ff8500); }
+.progress__value { @apply absolute top-[1px] left-[1px] w-[calc(100%-2px)] h-[7px] rounded bg-[#161024] text-white text-sm font-sans pl-2 flex items-center; }
+.progress__line { @apply absolute top-0 left-0 h-full rounded bg-gradient-to-r from-[#ff9c00] to-[#ff8500]; transition:all 1s; }
+
