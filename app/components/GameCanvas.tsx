@@ -183,9 +183,9 @@ export default function LuckyJetGame() {
 	return (
 		<div
 			ref={containerRef}
-			className="grid m-[40px_10px_0] h-[208px] sticky top-[70px] z-[19] pointer-events-none text-white font-sans"
+			className="grid m-[10px_10px_0] h-[208px] sticky top-[70px] z-[19] pointer-events-none text-white font-sans"
 		>
-			<div className="relative z-[19] overflow-hidden w-full h-full border border-[#261C4A] rounded-[12px] bg-[#151028]">
+			<div className="relative z-[19] overflow-hidden w-full h-full border border-[#261C4A] rounded-[12px] bg-[#151028] mt-[60px]">
 				{/* Фоновые слои */}
 				{state !== "waiting" && (
 					<div className="absolute w-full h-full overflow-hidden z-0">
