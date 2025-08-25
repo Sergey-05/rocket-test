@@ -299,7 +299,7 @@ export default function LuckyJetGame() {
 
 				{/* Блок ожидания */}
 				{state === "waiting" && (
-					<div className="grid p-4 place-content-center place-items-center gap-4 w-full h-full absolute z-[100]">
+					<div className="grid p-4 place-content-center place-items-center gap-4 w-full h-full absolute z-[40]">
 						<Image
 							alt="waiting"
 							width={30}
