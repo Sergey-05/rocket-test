@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google"; // добавили Roboto
 import "./globals.css";
 import PreloaderProvider from "./components/PreloaderProvider";
+import ClientEvents from "./components/ClientEvents";
 
 const roboto = Roboto({
 	variable: "--font-roboto",
@@ -23,6 +24,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${roboto.variable} antialiased`}>
 				<PreloaderProvider>
+					<ClientEvents />
 					<main className="p-2.5">{children}</main>
 				</PreloaderProvider>
 			</body>
